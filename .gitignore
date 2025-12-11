@@ -1,0 +1,20 @@
+# Ignore the binary file
+/sidecar
+
+# Go deps
+vendor/
+
+# env files
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Devs
+STRUCTURE.md
+README.md
+LICENSE
