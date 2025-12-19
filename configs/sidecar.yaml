@@ -18,8 +18,23 @@ features:
   http_logging:
     enabled: true
     config:
-      format: "json"
       exclude_paths: ["/health", "/metrics"]
+      redact_keywords:
+        - password
+        - token
+        - secret
+        - authorization
+        - cookie
+        - api_key
+        - bearer
+        - x-api-key
+        - x-auth-token
+      debug:
+        log_request_headers: true
+        log_response_headers: false
+        log_request_body: true
+        log_response_body: false
+        max_body_size: 4096
 
   # Future features (da aggiungere alla TODO list):
   # security_headers: (CSP, HSTS, CORS, security headers avanzati)

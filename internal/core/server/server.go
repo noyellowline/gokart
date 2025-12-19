@@ -23,8 +23,8 @@ func New(cfg *config.Config) (*Server, error) {
 		return nil, err
 	}
 
-	// Setup routes (health + proxied routes with middleware)
-	handler := setupRoutes(proxyHandler)
+	// Setup routes (health + proxied routes with middleware + features)
+	handler := setupRoutes(proxyHandler, cfg)
 
 	httpServer := &http.Server{
 		Addr:           cfg.Core.Server.Addr,
