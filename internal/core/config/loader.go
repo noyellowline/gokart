@@ -10,7 +10,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-const DefaultConfigPath = "configs/proxy.yaml"
+const DefaultConfigPath = "configs/sidecar.yaml"
 
 var validate = validator.New(validator.WithRequiredStructEnabled())
 
