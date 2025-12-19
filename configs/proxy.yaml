@@ -1,0 +1,26 @@
+# configs/proxy.yaml
+# Sidecar configuration file
+core:
+  server:
+    addr: "${SERVER_ADDR:0.0.0.0}:${PORT:8080}"
+    read_timeout: "${READ_TIMEOUT:10s}"
+    write_timeout: "${WRITE_TIMEOUT:10s}"
+    idle_timeout: "${IDLE_TIMEOUT:120s}"
+    max_header_bytes: ${MAX_HEADER_BYTES:1048576}
+
+  proxy:
+    target: "${TARGET_URL:http://localhost:3000}"
+    max_idle_conns: ${MAX_IDLE_CONNS:100}
+    idle_conn_timeout: "${IDLE_CONN_TIMEOUT:90s}"
+    flush_interval: "${FLUSH_INTERVAL:100ms}"
+
+features:
+  http_logging:
+    enabled: true
+    config:
+      format: "json"
+      exclude_paths: ["/health", "/metrics"]
+
+  # Future features (da aggiungere alla TODO list):
+  # security_headers: (CSP, HSTS, CORS, security headers avanzati)
+  # auth: (JWT validation + public_paths whitelist)
